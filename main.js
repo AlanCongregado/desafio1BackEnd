@@ -18,6 +18,10 @@ class ProductManager {
     //agrego el id
     product.id = this.#getId();
     // Validar que los parametros sean obligatorios
+    if (!title || !description || !price || !thumbnail || !code || !stock) {
+      console.log("todos los parametros son obligatorios");
+      return;
+    }
 
     // Validar si el producto ya se encuentra en la lista
     for (const product of this.products) {
@@ -68,6 +72,6 @@ productManager.addProduct(
   "abc123",
   20
 );
-productManager.addProduct("Producto", "description", 250, "Sin", "123abc", 50);
+productManager.addProduct("description", 250, "Sin", "123abc", 50);
 console.log(productManager.getProducts());
-console.log(productManager.getProductById());
+console.log(productManager.getProductById(1));
